@@ -6,7 +6,7 @@ const { CLIENT_ID, YUKI_COLOR } = process.env;
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('sobre-mim')
-    .setDescription('Veja informações detalhadas sobre mim 💜'),
+    .setDescription('📔 Veja informações detalhadas sobre mim 💜'),
   category: "Yuki",
   async execute(interaction, client) {
     const uptime = ms(client.uptime, { long: true });

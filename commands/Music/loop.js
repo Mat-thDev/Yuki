@@ -4,7 +4,7 @@ const { useQueue, QueueRepeatMode } = require('discord-player');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('loop')
-    .setDescription('Define o modo de repetição da música/fila')
+    .setDescription('🔁 Define o modo de repetição da música/fila')
     .addStringOption(option =>
       option.setName('mode')
         .setDescription('Modo de repetição')

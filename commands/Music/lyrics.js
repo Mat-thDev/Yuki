@@ -10,7 +10,7 @@ const { YUKI_COLOR, GENIUS_ACCESS_TOKEN} = process.env;
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('lyrics')
-    .setDescription('Mostra a letra da música atual ou de uma música específica')
+    .setDescription('🎤 Mostra a letra da música atual ou de uma música específica')
     .addStringOption(option =>
       option.setName('query')
         .setDescription('Nome da música para buscar a letra (opcional)')

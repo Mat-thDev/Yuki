@@ -6,7 +6,7 @@ const { YUKI_COLOR } = process.env;
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('volume')
-    .setDescription('Ajusta o volume da música')
+    .setDescription('🔊 Ajusta o volume da música')
     .addIntegerOption(option =>
       option.setName('nivel')
         .setDescription('Volume entre 0 e 100')

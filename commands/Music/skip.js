@@ -6,7 +6,7 @@ const { YUKI_COLOR } = process.env;
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('skip')
-    .setDescription('Pula a música que está tocando'),
+    .setDescription('⏩ Pula a música que está tocando'),
   category: "Music",
   async execute(interaction) {
     await interaction.deferReply();

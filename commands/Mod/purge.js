@@ -3,7 +3,7 @@ const { SlashCommandBuilder, PermissionFlagsBits } = require("discord.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("purge")
-    .setDescription("Deleta mensagens do canal atual")
+    .setDescription("🧹 Deleta mensagens do canal atual")
     .addIntegerOption(option =>
       option.setName("quantidade")
         .setDescription("Número de mensagens a deletar (máx. 100)")

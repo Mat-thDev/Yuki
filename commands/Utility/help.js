@@ -5,7 +5,7 @@ const { YUKI_COLOR } = process.env;
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("help")
-    .setDescription("Mostra a lista de comandos disponíveis"),
+    .setDescription("📰 Mostra a lista de comandos disponíveis"),
   category: "Utility",
   async execute(interaction) {
     const commands = interaction.client.commands;

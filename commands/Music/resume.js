@@ -6,7 +6,7 @@ const { YUKI_COLOR } = process.env;
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('resume')
-    .setDescription('Retoma a reprodução da música pausada'),
+    .setDescription('⏯️ Retoma a reprodução da música pausada'),
   category: "Music",
   async execute(interaction) {
     await interaction.deferReply();

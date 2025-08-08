@@ -1,10 +1,11 @@
-const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require("discord.js");
 const { OWNER_ID, YUKI_COLOR } = process.env;
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("reload")
     .setDescription("♻️ Recarrega dinamicamente um comando.")
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addStringOption(option =>
       option
         .setName("categoria")

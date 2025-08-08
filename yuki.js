@@ -55,7 +55,7 @@ client.events = new Collection();
 
 module.exports = client;
 
-["slashHandler", "eventHandler"].forEach(file => {
+["slashHandler", "eventHandler", "databaseHandler"].forEach(file => {
     require(`./handlers/${file}`)(client);
 });
 

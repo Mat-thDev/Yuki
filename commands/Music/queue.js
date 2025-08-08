@@ -6,7 +6,7 @@ const { YUKI_COLOR } = process.env;
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('queue')
-    .setDescription('Mostra as músicas na fila'),
+    .setDescription('🔗 Mostra as músicas na fila'),
   category: "Music",
   async execute(interaction) {
     await interaction.deferReply();

@@ -6,7 +6,7 @@ const { YUKI_COLOR } = process.env;
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('play')
-    .setDescription('Toque uma música no canal de voz')
+    .setDescription('▶️ Toque uma música no canal de voz')
     .addStringOption(option =>
       option.setName('query')
         .setDescription('Nome ou URL da música')

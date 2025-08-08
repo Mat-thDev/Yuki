@@ -1,10 +1,11 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, PermissionFlagsBits } = require("discord.js");
 const db = require("../../utils/database");
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("autorole")
-    .setDescription("Ativa ou desativa a função de autocargo.")
+    .setDescription("💼 Ativa ou desativa a função de autocargo.")
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
     .addBooleanOption((option) =>
       option
         .setName("ativar")
@@ -25,24 +26,16 @@ module.exports = {
     if (!interaction.guild) {
       return interaction.reply({
         content: "Este comando só pode ser usado em servidores.",
-        ephemeral: true,
+        flags: 64,
       });
     }
 
     if (!interaction.member.permissions.has("ManageRoles")) {
       return interaction.reply({
         content: "Você precisa da permissão **Gerenciar Cargos** para usar este comando.",
-        ephemeral: true,
+        flags: 64,
       });
     }
-
-    db.prepare(`
-      CREATE TABLE IF NOT EXISTS autorole (
-        guild_id TEXT PRIMARY KEY,
-        role_id TEXT
-      )
-    `).run();
-
 
     if (!ativar) {
       db.prepare("DELETE FROM autorole WHERE guild_id = ?").run(interaction.guild.id);

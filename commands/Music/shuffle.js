@@ -4,7 +4,7 @@ const { useQueue } = require('discord-player');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('shuffle')
-    .setDescription('Embaralha as músicas na fila'),
+    .setDescription('🔀 Embaralha as músicas na fila'),
   category: "Music",
   async execute(interaction) {
     const queue = useQueue(interaction.guild.id);
