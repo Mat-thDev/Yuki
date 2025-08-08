@@ -1,0 +1,26 @@
+{
+  "name": "yuki",
+  "version": "1.2.5",
+  "description": "Yuki, sua assistente virtual.",
+  "license": "ISC",
+  "author": "Misaki",
+  "type": "commonjs",
+  "main": "yuki.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@discord-player/extractor": "^7.1.0",
+    "@discordjs/opus": "^0.10.0",
+    "axios": "^1.11.0",
+    "better-sqlite3": "^12.2.0",
+    "chalk": "^5.5.0",
+    "discord-player": "^7.1.0",
+    "discord-player-youtubei": "^1.5.0",
+    "discord.js": "^14.21.0",
+    "dotenv": "^17.2.1",
+    "genius-lyrics-api": "^3.2.1",
+    "lyrics-finder": "^1.1.8",
+    "ms": "^2.1.3"
+  }
+}
