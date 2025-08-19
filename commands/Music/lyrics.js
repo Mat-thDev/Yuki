@@ -4,7 +4,7 @@ const { getLyrics } = require('genius-lyrics-api');
 
 const { useMainPlayer } = require('discord-player');
 
-const { YUKI_COLOR, GENIUS_ACCESS_TOKEN} = process.env;
+const { YUKI_COLOR, GENIUS_ACCESS_TOKEN } = process.env;
 
 
 module.exports = {
@@ -37,11 +37,11 @@ module.exports = {
 
       const options = {
         apiKey: GENIUS_ACCESS_TOKEN,
-        title: searchTerm,  
+        title: searchTerm,
         artist: queue.currentTrack.author,
         optimizeQuery: true
       };
-    
+
       const lyrics = await getLyrics(options) || "🎵 Letra não encontrada.";
 
       const description = lyrics.length > 4096 ? lyrics.slice(0, 4093) + '...' : lyrics;

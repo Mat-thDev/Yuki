@@ -13,6 +13,7 @@ module.exports = {
 
     commands.forEach((cmd) => {
       const category = cmd.category || "Outros";
+      if(category === "Dev") return;
       if (!categories[category]) categories[category] = [];
       categories[category].push(cmd.data);
     });
@@ -21,7 +22,7 @@ module.exports = {
     if (categoryNames.length === 0) {
       return interaction.reply({
         content: "❌ Não há comandos disponíveis no momento.",
-        ephemeral: true
+        flags: 64
       });
     }
 
@@ -40,16 +41,16 @@ module.exports = {
           value: cmds.map((c) => `• \`/${c.name}\` - ${c.description}`).join("\n"),
           inline: false
         })
-        .setFooter({ 
-          text: `Página ${index + 1}/${categoryNames.length} • ${interaction.client.user.username}`, 
-          iconURL: interaction.client.user.displayAvatarURL() 
+        .setFooter({
+          text: `Página ${index + 1}/${categoryNames.length} • ${interaction.client.user.username}`,
+          iconURL: interaction.client.user.displayAvatarURL()
         })
         .setTimestamp();
     };
 
     try {
       const isMultiPage = categoryNames.length > 1;
-      
+
       const row = isMultiPage ? new ActionRowBuilder().addComponents(
         new ButtonBuilder()
           .setCustomId("prev")
@@ -65,7 +66,7 @@ module.exports = {
           .setDisabled(pageIndex === categoryNames.length - 1)
       ) : null;
 
-      const messageOptions = { 
+      const messageOptions = {
         embeds: [generateEmbed(pageIndex)],
         components: isMultiPage ? [row] : []
       };
@@ -73,14 +74,14 @@ module.exports = {
       const userDM = await interaction.user.send(messageOptions);
       await interaction.reply({
         content: "📬 Enviei a lista de comandos na sua DM!",
-        ephemeral: true
+        flags: 64
       });
 
       if (!isMultiPage) return;
 
-      const collector = userDM.createMessageComponentCollector({ 
+      const collector = userDM.createMessageComponentCollector({
         filter: i => i.user.id === interaction.user.id,
-        time: 60000 
+        time: 60000
       });
 
       collector.on("collect", async i => {
@@ -119,7 +120,7 @@ module.exports = {
       console.error("Erro no comando help:", err);
       await interaction.reply({
         content: "❌ Não consegui enviar a mensagem na sua DM. Verifique se suas mensagens diretas estão habilitadas.",
-        ephemeral: true
+        flags: 64
       });
     }
   },

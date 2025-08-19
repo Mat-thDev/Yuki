@@ -12,6 +12,7 @@ client.on(Events.GuildMemberAdd, async (member) => {
   await handleAutoRole(member);
 });
 
+// ----------- Gerencia o Autocargo -----------
 const handleAutoRole = async (member) => {
   const config = db.prepare("SELECT role_id FROM autorole WHERE guild_id = ?").get(member.guild.id);
   if (!config) return;

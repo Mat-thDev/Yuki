@@ -3,7 +3,7 @@ const { default: chalk } = require("chalk");
 
 module.exports = (client) => {
   console.log(chalk.blue("0------------------| Event Handler:"));
-  
+
   fs.readdirSync('./events/').forEach(dir => {
     const commands = fs.readdirSync(`./events/${dir}`).filter(file => file.endsWith('.js'));
     for (let file of commands) {
@@ -15,7 +15,7 @@ module.exports = (client) => {
         console.log(chalk.red(`[HANDLER - EVENT] Não foi possível carregar o arquivo ${file}.`))
         continue;
       }
-      
+
     }
   });
 }

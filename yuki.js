@@ -37,19 +37,19 @@ const client = new Client({
     }
 });
 
-// Logged in
+// ----------- Logada -----------
 client.once(Events.ClientReady, readyClient => {
     console.log(chalk.blue("0------------------| Ready:"))
     console.log(chalk.greenBright(`${readyClient.user.tag} logado com sucesso.`))
 });
 
-// Check if the token is valid
+// ----------- Verifica se o token é valido -----------
 if (!YUKI_TOKEN) {
     console.warn(chalk.red("[CRASH] TOKEN AUTH não providenciado ou não é válido.") + "\n")
     process.exit();
 };
 
-// Handlers
+// ----------- Handlers -----------
 client.commands = new Collection();
 client.events = new Collection();
 
@@ -59,7 +59,7 @@ module.exports = client;
     require(`./handlers/${file}`)(client);
 });
 
-// Logged in and Initialized
+// ----------- Logada e Iniciada -----------
 client.login(YUKI_TOKEN).catch((err) => {
     console.error(chalk.red("[CRASH] Algo deu errado ao conectar com o bot..." + "\n"));
     console.error(chalk.red("[CRASH] Erro do Discord API:" + err));
